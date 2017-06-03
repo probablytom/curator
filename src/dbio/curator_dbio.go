@@ -55,6 +55,7 @@ func ShutDownConnection(connectionURL string) error {
 	return conn.Close()
 }
 
+// TODO: check for already registered user
 func RegisterNewUser(username, password string) bool {
 	_, err := conn.ExecNeo("CREATE (n:user {username: {username}, password: {password}})",
 		map[string]interface{}{"username": username, "password": password})
